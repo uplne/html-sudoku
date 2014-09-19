@@ -1,0 +1,32 @@
+/**
+ * Grid system
+ *
+
+ */
+
+.g {
+    display: inline-block;
+    margin-left: -$base-padding;
+}
+
+.g__item {
+    display: inline-block;
+    width: 100%;
+    padding-left: $base-padding;
+    vertical-align: top;
+}
+
+.g-half       { width: 50%; }
+
+/**
+ * Quarters
+ */
+.g-quarter    { width: 25%; }
+
+/**
+ * Fifths
+ */
+.g-fifth      { width: 20%; }
+.g-twofifths  { width: 40%; }
+.g-threefifts { width: 60%; }
+.g-fourfifths { width: 80%; }

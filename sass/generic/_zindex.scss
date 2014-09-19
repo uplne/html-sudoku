@@ -1,0 +1,20 @@
+/**
+ * z-index management
+ *
+ * Each scope has it's own greek letter name and
+ * each scope starts at scope name number * 100
+ *
+ * Scope 1: -alpha z-index: 0+
+ * Scope 2: -beta  z-index: 100+
+ * etc.
+ *
+ * Things that need to be at the topest layer are in omega scope. There is nothing
+ * above omega scope.
+ */
+
+/**
+ * z-index Omega
+ *
+ * Is the top level z-index scope
+ */
+$zindex-omega: 10000;

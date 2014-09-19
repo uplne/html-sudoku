@@ -1,0 +1,26 @@
+/**
+ * Helpers
+ *
+ * Atoms and placeholders that don't exactly match with any
+ * object and are solving global problems.
+ */
+
+/**
+ * Hiding
+ */
+
+.is-hidden {
+    display: none;
+}
+
+.visuallyhidden {
+    visibility: hidden;
+}
+
+/**
+ * Setting displat options
+ */
+%center {
+    margin: 0 auto;
+    text-align: center;
+}

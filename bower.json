@@ -1,0 +1,16 @@
+{
+  "name": "html-sudoku",
+  "description": "HTML sudoku for online gaming",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uplne/html-sudoku.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uplne/html-sudoku/issues"
+  },
+  "homepage": "https://github.com/uplne/html-sudoku",
+  "dependencies": {
+    "nosferatu.css": "git://github.com/uplne/Nosferatu.css.git"
+  }
+}
