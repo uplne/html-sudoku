@@ -1,5 +1,14 @@
+.sudoku__block--light {
+	background-color: #fff;
+}
+
+.sudoku__block--dark {
+	background-color: #666;
+}
+
 .sudoku__cell {
-	background-color: #ccc;
 	width: 2em;
 	height: 2em;
+	background-color: #ccc;
+	border: 1px solid #000;
 }

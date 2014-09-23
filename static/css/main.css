@@ -1,1 +1,17 @@
-.sudoku__cell{background-color:#ccc;width:2em;height:2em}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\000031}}
+.sudoku__block--light {
+  background-color: #fff;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\000035}}
+.sudoku__block--dark {
+  background-color: #666;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\000039}}
+.sudoku__cell {
+  width: 2em;
+  height: 2em;
+  background-color: #ccc;
+  border: 1px solid #000;
+}
