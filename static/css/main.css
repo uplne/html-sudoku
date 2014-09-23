@@ -14,4 +14,9 @@
   height: 2em;
   background-color: #ccc;
   border: 1px solid #000;
+  transition: background-color 300ms;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000315}}
+.sudoku__cell:hover {
+  background-color: #888;
 }

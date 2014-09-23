@@ -11,4 +11,10 @@
 	height: 2em;
 	background-color: #ccc;
 	border: 1px solid #000;
+
+    &:hover {
+        background-color: #888;
+    }
+
+    transition: background-color 300ms;
 }
