@@ -1,4 +1,4 @@
-(function() {
+var sudoku = function() {
 	var els = {
 		holder: qwery(".js-sudoku"),
 		cells : qwery(".sudoku__cell")
@@ -10,7 +10,7 @@
  		},
 
  		bindEvents: function() {
- 			bean.on(els.holder, "click", api.clickHandler);
+ 			bean.on(els.holder[0], "click", els.cells, api.clickHandler);
  		},
 
  		clickHandler: function(e) {
@@ -18,5 +18,5 @@
  		}
  	};
 
- 	api.init();
-}());
+ 	return api;
+};
