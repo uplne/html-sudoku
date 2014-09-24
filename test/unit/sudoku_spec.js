@@ -2,9 +2,13 @@ describe("Sudoku", function() {
 	var sut;
 
 	beforeEach(function() {
-		sut = new sudoku();
+		fixtures.add('<div class="js-sudoku"><div class="sudoku__cell"></div></div>');
 
-		
+		sut = new sudoku();
+	});
+
+	afterEach(function() {
+		fixtures.remove();
 	});
 
 	it("should initialize", function() {
