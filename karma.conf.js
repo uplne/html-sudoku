@@ -17,6 +17,7 @@ module.exports = function(config) {
     files: [
       'static/js/libs/*.js',
       'static/js/app/*.js',
+      'test/unit/helpers/jasmine-fixture.min.js',
       'test/unit/*_spec.js'
     ],
 
