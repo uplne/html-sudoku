@@ -4,7 +4,7 @@ var sudoku = function() {
 		cells : qwery(".sudoku__cell")
  	};
 
- 	var easyPuzzle = [
+ 	var easySudoku = [
 	    [5, 3, 0, 0, 7, 0, 0, 0, 0],
 	    [6, 0, 0, 1, 9, 5, 0, 0, 0],
 	    [0, 9, 8, 0, 0, 0, 0, 6, 0],
@@ -19,7 +19,7 @@ var sudoku = function() {
  	var api = {
  		init: function() {
  			this.bindEvents();
- 			this.renderPuzzle();
+ 			this.renderSudoku();
  		},
 
  		bindEvents: function() {
@@ -30,23 +30,26 @@ var sudoku = function() {
  			console.log('click', e.target);
  		},
 
- 		renderPuzzle: function() {
+ 		renderSudoku: function() {
  			for (var i = 0; i < 81; i++) {
  				var row       = Math.floor(i / 9),
  					col       = i % 9,
  					cell      = qwery(document.getElementById(i))[0],
- 					cellValue = easyPuzzle[row][col];
+ 					cellValue = easySudoku[row][col];
 
  				api.setCell(cell, cellValue);
  			}
- 		}
+ 		},
 
+ 		/**
+ 		 * If cell has value set it to this value else make it dynamic field.
+ 		 */
  		setCell: function(cell, cellValue) {
- 			/*if (cellValue !== 0) {
+ 			if (cellValue !== 0) {
 				cell.innerHTML = "<span>" + cellValue + "</span>";
 			} else {
 				bonzo(cell).addClass("sudoku__cell--dynamic");
-			}*/
+			}
  		}
  	};
 
