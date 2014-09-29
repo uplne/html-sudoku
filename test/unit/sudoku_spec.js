@@ -40,7 +40,6 @@ describe("Sudoku", function() {
 	});
 
 	describe("Render sudoku", function() {
-
 		var element = null;
 
 		beforeEach(function() {
@@ -61,8 +60,24 @@ describe("Sudoku", function() {
 	});
 
 	describe("Open number picker", function() {
-		it("shoud render number picker after click on dynamic field", function() {
+		var element = null;
+
+		beforeEach(function() {
+			element = document.getElementById(0);
+		});
 			
+		it("shoud call renderPicker after click on dynamic field", function() {
+			spyOn(sut, "renderPicker");
+
+			sut.bindEvents();
+			bean.fire(qwery(".sudoku__cell")[0], 'click');
+
+			expect(sut.renderPicker).toHaveBeenCalledWith(element);
+		});
+
+		it("should add renderPicker to the DOM", function() {
+			sut.renderPicker(element);
+			expect(qwery(".number-picker").length).toEqual(1);
 		});
 	});
 });

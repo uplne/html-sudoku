@@ -27,7 +27,7 @@ var sudoku = function() {
  		},
 
  		clickHandler: function(e) {
- 			console.log('click', e.target);
+ 			api.renderPicker(e.target);
  		},
 
  		renderSudoku: function() {
@@ -50,6 +50,17 @@ var sudoku = function() {
 			} else {
 				bonzo(cell).addClass("sudoku__cell--dynamic");
 			}
+ 		},
+
+ 		/**
+ 		 * Called by clikHandler starts rendering the number picker
+ 		 *
+ 		 * @param {Object} element Clicked on element from event.target
+ 		 */
+ 		renderPicker: function(element) {
+ 			var picker = '<div class="number-picker"></div>';
+
+ 			element.innerHTML = picker;
  		}
  	};
 
