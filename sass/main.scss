@@ -11,6 +11,19 @@
 	height: 2em;
 	background-color: #ccc;
 	border: 1px solid #000;
+    cursor: default;
+    font-weight: bold;
+
+    > span {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+}
+
+.sudoku__cell--dynamic {
+    font-weight: normal;
+    cursor: pointer;
 
     &:hover {
         background-color: #888;

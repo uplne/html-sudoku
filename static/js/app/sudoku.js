@@ -32,11 +32,21 @@ var sudoku = function() {
 
  		renderPuzzle: function() {
  			for (var i = 0; i < 81; i++) {
- 				var row = Math.floor(i / 9),
- 					col = i % 9;
+ 				var row       = Math.floor(i / 9),
+ 					col       = i % 9,
+ 					cell      = qwery(document.getElementById(i))[0],
+ 					cellValue = easyPuzzle[row][col];
 
- 				document.getElementById(i).innerHTML = "<span>" + easyPuzzle[row][col] + "</span>";
+ 				api.setCell(cell, cellValue);
  			}
+ 		}
+
+ 		setCell: function(cell, cellValue) {
+ 			/*if (cellValue !== 0) {
+				cell.innerHTML = "<span>" + cellValue + "</span>";
+			} else {
+				bonzo(cell).addClass("sudoku__cell--dynamic");
+			}*/
  		}
  	};
 

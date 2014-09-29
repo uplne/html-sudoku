@@ -2,7 +2,7 @@ describe("Sudoku", function() {
 	var sut;
 
 	beforeEach(function() {
-		fixtures.add('<div class="js-sudoku"><div class="sudoku__cell"></div></div>');
+		fixtures.add('<div class="js-sudoku"><div id="0" class="sudoku__cell"></div></div>');
 
 		sut = new sudoku();
 	});
@@ -33,5 +33,11 @@ describe("Sudoku", function() {
 		bean.fire(qwery(".sudoku__cell")[0], 'click');
 
 		expect(sut.clickHandler).toHaveBeenCalled();
+	});
+
+	it("should show number if cell is static", function() {
+		sut.setCell(qwery(document.getElementById(0)), 8);
+		expect(bonzo(qwery(document.getElementById(0)).hasClass("sudoku__cell--dynamic")).toBe(true);
+		expect(document.getElementById(0).innerHTML).toEqual("<span>8</span>")
 	});
 });

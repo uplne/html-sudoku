@@ -14,9 +14,23 @@
   height: 2em;
   background-color: #ccc;
   border: 1px solid #000;
+  cursor: default;
+  font-weight: bold;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000317}}
+.sudoku__cell > span {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000324}}
+.sudoku__cell--dynamic {
+  font-weight: normal;
+  cursor: pointer;
   transition: background-color 300ms;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000315}}
-.sudoku__cell:hover {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000328}}
+.sudoku__cell--dynamic:hover {
   background-color: #888;
 }
