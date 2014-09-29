@@ -58,5 +58,11 @@ describe("Sudoku", function() {
 			expect(bonzo(qwery(element)[0]).hasClass("sudoku__cell--dynamic")).toBe(true);
 			expect(element.innerHTML).toEqual("")
 		});
-	})
+	});
+
+	describe("Open number picker", function() {
+		it("shoud render number picker after click on dynamic field", function() {
+			
+		});
+	});
 });
