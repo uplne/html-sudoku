@@ -1,26 +1,43 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\000031}}
+/**
+ * Helpers
+ *
+ * Atoms and placeholders that don't exactly match with any
+ * object and are solving global problems.
+ */
+/**
+ * Hiding
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/generic\/_helpers\.scss}line{font-family:\0000312}}
+.is-hidden {
+  display: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/generic\/_helpers\.scss}line{font-family:\0000316}}
+.visuallyhidden {
+  visibility: hidden;
+}
+
+/**
+ * Setting displat options
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\000036}}
 .sudoku__block--light {
   background-color: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\000035}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000310}}
 .sudoku__block--dark {
   background-color: #666;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\000039}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000314}}
 .sudoku__cell {
-  width: 2em;
-  height: 2em;
+  width: 3em;
+  height: 3em;
   background-color: #ccc;
   border: 1px solid #000;
   cursor: default;
   font-weight: bold;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000317}}
-.sudoku__cell > span {
-  width: 100%;
-  display: block;
   text-align: center;
 }
 
@@ -33,4 +50,18 @@
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000328}}
 .sudoku__cell--dynamic:hover {
   background-color: #888;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000335}}
+.number-picker {
+  border-radius: 5px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000339}}
+.number-picker__cell {
+  width: 3em;
+  height: 3em;
+  background-color: #f4f4f4;
+  border: 1px solid #eaeaea;
+  text-align: center;
 }
