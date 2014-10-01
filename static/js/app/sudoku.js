@@ -58,11 +58,19 @@ var sudoku = function() {
  		 * @param {Object} element Clicked on element from event.target
  		 */
  		renderPicker: function(element) {
- 			var picker = '<div class="number-picker"></div>';
-
- 			element.innerHTML = picker;
+ 			var picker = new numberPicker(element);
  		}
  	};
 
  	return api;
+};
+
+var numberPicker = function(element) {
+	var api = {
+		addToDOM: function() {
+			 
+		}
+	};
+
+	return api;
 };

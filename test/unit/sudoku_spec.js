@@ -75,9 +75,9 @@ describe("Sudoku", function() {
 			expect(sut.renderPicker).toHaveBeenCalledWith(element);
 		});
 
-		it("should add renderPicker to the DOM", function() {
+		it("should add renderPicker to the cell", function() {
 			sut.renderPicker(element);
-			expect(qwery(".number-picker").length).toEqual(1);
+			expect(qwery(".sudoku__cell .number-picker").length).toEqual(1);
 		});
 	});
 });
