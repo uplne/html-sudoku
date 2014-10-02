@@ -1,4 +1,4 @@
-var sudoku = function() {
+var Sudoku = function() {
 	var els = {
 		holder: qwery(".js-sudoku"),
 		cells : qwery(".sudoku__cell")
@@ -58,17 +58,20 @@ var sudoku = function() {
  		 * @param {Object} element Clicked on element from event.target
  		 */
  		renderPicker: function(element) {
- 			var picker = new numberPicker(element);
+ 			var picker = new NumberPicker(element);
+ 				picker.addToDOM();
  		}
  	};
 
  	return api;
 };
 
-var numberPicker = function(element) {
+var NumberPicker = function(element) {
 	var api = {
 		addToDOM: function() {
-			 
+			var picker = bonzo(qwery(".js-number-picker")[0]);
+
+			bonzo(element).html(picker.html());
 		}
 	};
 

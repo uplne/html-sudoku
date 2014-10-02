@@ -4,7 +4,7 @@ describe("Sudoku", function() {
 	beforeEach(function() {
 		fixtures.add('<div class="js-sudoku"><div id="0" class="sudoku__cell"></div></div>');
 
-		sut = new sudoku();
+		sut = new Sudoku();
 	});
 
 	afterEach(function() {
@@ -73,11 +73,6 @@ describe("Sudoku", function() {
 			bean.fire(qwery(".sudoku__cell")[0], 'click');
 
 			expect(sut.renderPicker).toHaveBeenCalledWith(element);
-		});
-
-		it("should add renderPicker to the cell", function() {
-			sut.renderPicker(element);
-			expect(qwery(".sudoku__cell .number-picker").length).toEqual(1);
 		});
 	});
 });
