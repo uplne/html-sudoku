@@ -25,6 +25,10 @@ $cell-size: 3em;
     cursor: default;
     font-weight: bold;
     text-align: center;
+
+    &.is-active {
+        background-color: #888;
+    }
 }
 
 .sudoku__cell--dynamic {

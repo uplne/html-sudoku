@@ -74,5 +74,19 @@ describe("Sudoku", function() {
 
 			expect(sut.renderPicker).toHaveBeenCalledWith(element);
 		});
+
+		it("should set current cell to active", function() {
+			spyOn(sut, "toggleActive").andCallThrough();
+
+			sut.bindEvents();
+			bean.fire(qwery(".sudoku__cell")[0], 'click');
+
+			expect(sut.toggleActive).toHaveBeenCalled();
+			expect(bonzo(qwery(".sudoku__cell")[0]).hasClass("is-active")).toEqual(true);
+
+			bean.fire(qwery(".sudoku__cell")[0], 'click');
+
+			expect(bonzo(qwery(".sudoku__cell")[0]).hasClass("is-active")).toEqual(false);
+		});
 	});
 });

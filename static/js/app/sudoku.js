@@ -27,6 +27,7 @@ var Sudoku = function() {
  		},
 
  		clickHandler: function(e) {
+ 			api.toggleActive(e.target);
  			api.renderPicker(e.target);
  		},
 
@@ -60,6 +61,19 @@ var Sudoku = function() {
  		renderPicker: function(element) {
  			var picker = new NumberPicker(element);
  				picker.addToDOM();
+ 		},
+
+ 		/**
+ 		 * Add/remove is-active class
+ 		 */
+ 		toggleActive: function(element) {
+ 			var el = bonzo(element);
+
+ 			if (el.hasClass("is-active")) {
+ 				el.removeClass("is-active");
+ 			} else {
+ 				el.addClass("is-active");
+ 			}
  		}
  	};
 
