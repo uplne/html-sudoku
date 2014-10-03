@@ -1,7 +1,13 @@
 @import "generic/colors";
 @import "generic/helpers";
+@import "generic/zindex";
+@import "generic/mixins";
 
 $cell-size: 3em;
+
+.sudoku {
+    @include vendor(box-sizing, border-box);
+}
 
 .sudoku__block--light {
 	background-color: #fff;
@@ -22,6 +28,7 @@ $cell-size: 3em;
 }
 
 .sudoku__cell--dynamic {
+    position: relative;
     font-weight: normal;
     cursor: pointer;
 
@@ -33,7 +40,14 @@ $cell-size: 3em;
 }
 
 .number-picker {
+    width: $cell-size * 3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: $zindex-omega;
+    background-color: #ccc;
     border-radius: 5px;
+    box-shadow: 2px 2px 3px rgba(0,0,0,.1);
 }
 
 .number-picker__cell {
@@ -42,4 +56,10 @@ $cell-size: 3em;
     background-color: $numberPicker-cell-bg;
     border: 1px solid $numberPicker-cell-border;
     text-align: center;
+
+    &:hover {
+        background-color: #888;
+    }
+
+    transition: background-color 300ms;
 }

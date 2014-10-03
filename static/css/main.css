@@ -20,17 +20,71 @@
 /**
  * Setting displat options
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\000036}}
+/**
+ * z-index management
+ *
+ * Each scope has it's own greek letter name and
+ * each scope starts at scope name number * 100
+ *
+ * Scope 1: -alpha z-index: 0+
+ * Scope 2: -beta  z-index: 100+
+ * etc.
+ *
+ * Things that need to be at the topest layer are in omega scope. There is nothing
+ * above omega scope.
+ */
+/**
+ * z-index Omega
+ *
+ * Is the top level z-index scope
+ */
+/**
+ * Mixins
+ */
+/**
+ * Vendor prefixes
+ *
+ * I keep this here for now but I encourage you to use grunt autoprefixer
+ * for managing vendor prefixes https://github.com/nDmitry/grunt-autoprefixer
+ */
+/**
+ * Font size with vertical rhytm.
+ * Thanks to Harry Roberts (inuit.css).
+ *
+ * Default font size across browesers is 16px = 1rem. If you want to
+ * set different default (base) font size set font-size for HTML element.
+ */
+/**
+ * Arrows.
+ *
+ * Mixin generates styles for CSS arrows using border.
+ * Position of arrow should be set outside of this mixin.
+ */
+/**
+ * rwd design
+ *
+ * Mixin generate code for rwd media queries.
+ *
+ * Dimensions for rwd design in _dimensions.scss
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\000038}}
+.sudoku {
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000312}}
 .sudoku__block--light {
   background-color: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000310}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000316}}
 .sudoku__block--dark {
   background-color: #666;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000314}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000320}}
 .sudoku__cell {
   width: 3em;
   height: 3em;
@@ -41,27 +95,40 @@
   text-align: center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000330}}
 .sudoku__cell--dynamic {
+  position: relative;
   font-weight: normal;
   cursor: pointer;
   transition: background-color 300ms;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000335}}
 .sudoku__cell--dynamic:hover {
   background-color: #888;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000342}}
 .number-picker {
+  width: 9em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10000;
+  background-color: #ccc;
   border-radius: 5px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000339}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000353}}
 .number-picker__cell {
   width: 3em;
   height: 3em;
   background-color: #f4f4f4;
   border: 1px solid #eaeaea;
   text-align: center;
+  transition: background-color 300ms;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/svadocz\/Dev\/html-sudoku\/sass\/main\.scss}line{font-family:\0000360}}
+.number-picker__cell:hover {
+  background-color: #888;
 }

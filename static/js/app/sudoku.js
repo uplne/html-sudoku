@@ -70,6 +70,7 @@ var NumberPicker = function(element) {
 	var api = {
 		addToDOM: function() {
 			var picker = bonzo(qwery(".js-number-picker")[0]);
+			console.log(picker.html());
 
 			bonzo(element).html(picker.html());
 		}
