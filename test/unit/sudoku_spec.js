@@ -78,9 +78,11 @@ describe("Sudoku", function() {
 		it("should not renderPicker if it's already open", function() {
 			sut.renderPicker();
 
-			spyOn(sut, "renderPicker").andCallThrough();
+			spyOn(sut, "renderPicker");
 
-			expect(sut.renderPicker()).toEqual(false);
+			sut.renderPicker();
+
+			expect(sut.renderPicker).not.toHaveBeenCalled();
 		});
 
 		it("should set current cell to active", function() {

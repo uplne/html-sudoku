@@ -29,9 +29,13 @@ var Sudoku = function() {
  		},
 
  		clickHandler: function(e) {
- 			console.log('click');
+ 			if (isPickerRendered) {
+ 				return false;
+ 			}
+
  			api.toggleActive(e.target);
  			api.renderPicker(e.target);
+ 			isPickerRendered = true;
  		},
 
  		renderSudoku: function() {
@@ -62,14 +66,8 @@ var Sudoku = function() {
  		 * @param {Object} element Clicked on element from event.target
  		 */
  		renderPicker: function(element) {
- 			if (isPickerRendered) {
- 				return false;
- 			}
-
  			var picker = new NumberPicker(element);
  				picker.addToDOM();
-
- 			isPickerRendered = true;
  		},
 
  		/**
