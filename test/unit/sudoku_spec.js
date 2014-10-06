@@ -11,7 +11,7 @@ describe("Sudoku", function() {
 		fixtures.remove();
 	});
 
-	it("should initialize", function() {
+	xit("should initialize", function() {
 		spyOn(sut, 'init');
 
 		sut.init();
@@ -19,7 +19,7 @@ describe("Sudoku", function() {
 		expect(sut.init).toHaveBeenCalled();
 	});
 
-	it("should call init methods", function() {
+	xit("should call init methods", function() {
 		spyOn(sut, 'bindEvents');
 		spyOn(sut, 'renderSudoku');
 
@@ -29,7 +29,7 @@ describe("Sudoku", function() {
 		expect(sut.renderSudoku).toHaveBeenCalled();
 	});
 
-	it("should detect click events", function() {
+	xit("should detect click events", function() {
 		spyOn(sut, 'clickHandler');
 
 		sut.bindEvents();
@@ -39,7 +39,7 @@ describe("Sudoku", function() {
 		expect(sut.clickHandler).toHaveBeenCalled();
 	});
 
-	describe("Render sudoku", function() {
+	xdescribe("Render sudoku", function() {
 		var element = null;
 
 		beforeEach(function() {
@@ -73,6 +73,14 @@ describe("Sudoku", function() {
 			bean.fire(qwery(".sudoku__cell")[0], 'click');
 
 			expect(sut.renderPicker).toHaveBeenCalledWith(element);
+		});
+
+		it("should not renderPicker if it's already open", function() {
+			sut.renderPicker();
+
+			spyOn(sut, "renderPicker").andCallThrough();
+
+			expect(sut.renderPicker()).toEqual(false);
 		});
 
 		it("should set current cell to active", function() {

@@ -4,6 +4,8 @@ var Sudoku = function() {
 		cells : qwery(".sudoku__cell")
  	};
 
+ 	var isPickerRendered = false;
+
  	var easySudoku = [
 	    [5, 3, 0, 0, 7, 0, 0, 0, 0],
 	    [6, 0, 0, 1, 9, 5, 0, 0, 0],
@@ -27,6 +29,7 @@ var Sudoku = function() {
  		},
 
  		clickHandler: function(e) {
+ 			console.log('click');
  			api.toggleActive(e.target);
  			api.renderPicker(e.target);
  		},
@@ -59,8 +62,14 @@ var Sudoku = function() {
  		 * @param {Object} element Clicked on element from event.target
  		 */
  		renderPicker: function(element) {
+ 			if (isPickerRendered) {
+ 				return false;
+ 			}
+
  			var picker = new NumberPicker(element);
  				picker.addToDOM();
+
+ 			isPickerRendered = true;
  		},
 
  		/**
@@ -81,12 +90,26 @@ var Sudoku = function() {
 };
 
 var NumberPicker = function(element) {
+	var els = {
+		holder: null
+	};
+
 	var api = {
 		addToDOM: function() {
-			var picker = bonzo(qwery(".js-number-picker")[0]);
-			console.log(picker.html());
+			els.holder = bonzo(qwery(".js-number-picker")[0]);
+			console.log("to dom");
+			bonzo(element).html(els.holder.html());
 
-			bonzo(element).html(picker.html());
+			this.bindEvents();
+		},
+
+		bindEvents: function() {
+			bean.on(document.body, "click", els.holder, this.removeFromDOM.bind(this));
+		},
+
+		removeFromDOM: function() {
+			console.log("remove");
+			bonzo(element).html("");
 		}
 	};
 
