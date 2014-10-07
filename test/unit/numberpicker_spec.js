@@ -1,9 +1,9 @@
-xdescribe("NumberPicker", function() {
+describe("NumberPicker", function() {
 	var sut;
 
 	beforeEach(function() {
 		fixtures.add('<div class="js-sudoku"><div id="0" class="sudoku__cell"></div></div>'
-			+ '<div class="js-number-picker"><table class="number-picker" cellpadding="0" cellspacing="1"></div>');
+			+ '<div class="js-number-picker"><table class="number-picker js-picker" cellpadding="0" cellspacing="1"></div>');
 
 		sut = new NumberPicker(qwery(".sudoku__cell")[0]);
 	});
@@ -32,7 +32,7 @@ xdescribe("NumberPicker", function() {
 
 		sut.addToDOM();
 
-		bean.fire(qwery(".js-number-picker")[0], 'click');
+		bean.fire(qwery(".js-picker")[0], 'click');
 
 		expect(sut.removeFromDOM).toHaveBeenCalled();
 	});

@@ -35,7 +35,6 @@ var Sudoku = function() {
 
  			api.toggleActive(e.target);
  			api.renderPicker(e.target);
- 			isPickerRendered = true;
  		},
 
  		renderSudoku: function() {
@@ -78,8 +77,10 @@ var Sudoku = function() {
 
  			if (el.hasClass("is-active")) {
  				el.removeClass("is-active");
+ 				isPickerRendered = false;
  			} else {
  				el.addClass("is-active");
+ 				isPickerRendered = true;
  			}
  		}
  	};
@@ -94,19 +95,17 @@ var NumberPicker = function(element) {
 
 	var api = {
 		addToDOM: function() {
-			els.holder = bonzo(qwery(".js-number-picker")[0]);
-			console.log("to dom");
-			bonzo(element).html(els.holder.html());
+			els.holder = qwery(".js-number-picker")[0];
+			bonzo(element).html(bonzo(els.holder).html());
 
-			this.bindEvents();
+			api.bindEvents();
 		},
 
 		bindEvents: function() {
-			bean.on(document.body, "click", els.holder, this.removeFromDOM.bind(this));
+			bean.on(document.body, "click", qwery(".js-picker"), api.removeFromDOM);
 		},
 
 		removeFromDOM: function() {
-			console.log("remove");
 			bonzo(element).html("");
 		}
 	};

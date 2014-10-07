@@ -2,7 +2,8 @@ describe("Sudoku", function() {
 	var sut;
 
 	beforeEach(function() {
-		fixtures.add('<div class="js-sudoku"><div id="0" class="sudoku__cell"></div></div>');
+		fixtures.add('<div class="js-sudoku"><div id="0" class="sudoku__cell"></div></div>'
+			+ '<div class="js-number-picker"><table class="number-picker" cellpadding="0" cellspacing="1"></div>');
 
 		sut = new Sudoku();
 	});
@@ -11,7 +12,7 @@ describe("Sudoku", function() {
 		fixtures.remove();
 	});
 
-	xit("should initialize", function() {
+	it("should initialize", function() {
 		spyOn(sut, 'init');
 
 		sut.init();
@@ -19,7 +20,7 @@ describe("Sudoku", function() {
 		expect(sut.init).toHaveBeenCalled();
 	});
 
-	xit("should call init methods", function() {
+	it("should call init methods", function() {
 		spyOn(sut, 'bindEvents');
 		spyOn(sut, 'renderSudoku');
 
@@ -29,7 +30,7 @@ describe("Sudoku", function() {
 		expect(sut.renderSudoku).toHaveBeenCalled();
 	});
 
-	xit("should detect click events", function() {
+	it("should detect click events", function() {
 		spyOn(sut, 'clickHandler');
 
 		sut.bindEvents();
@@ -39,7 +40,7 @@ describe("Sudoku", function() {
 		expect(sut.clickHandler).toHaveBeenCalled();
 	});
 
-	xdescribe("Render sudoku", function() {
+	describe("Render sudoku", function() {
 		var element = null;
 
 		beforeEach(function() {
@@ -76,11 +77,12 @@ describe("Sudoku", function() {
 		});
 
 		it("should not renderPicker if it's already open", function() {
-			sut.renderPicker();
+			sut.bindEvents();
+			bean.fire(qwery(".sudoku__cell")[0], 'click');
 
-			spyOn(sut, "renderPicker");
+			spyOn(sut, "renderPicker").andCallThrough();
 
-			sut.renderPicker();
+			bean.fire(qwery(".sudoku__cell")[0], 'click');
 
 			expect(sut.renderPicker).not.toHaveBeenCalled();
 		});
@@ -94,9 +96,20 @@ describe("Sudoku", function() {
 			expect(sut.toggleActive).toHaveBeenCalled();
 			expect(bonzo(qwery(".sudoku__cell")[0]).hasClass("is-active")).toEqual(true);
 
-			bean.fire(qwery(".sudoku__cell")[0], 'click');
+			sut.toggleActive(qwery(".sudoku__cell")[0]);
 
 			expect(bonzo(qwery(".sudoku__cell")[0]).hasClass("is-active")).toEqual(false);
+		});
+
+		it("should not set cell to active when other cell is already active", function() {
+			sut.bindEvents();
+			bean.fire(qwery(".sudoku__cell")[0], 'click');
+
+			spyOn(sut, "toggleActive");
+
+			bean.fire(qwery(".sudoku__cell")[0], 'click');
+
+			expect(sut.toggleActive).not.toHaveBeenCalled();
 		});
 	});
 });
